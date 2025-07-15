@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery - Artful Vibes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at center,black, #000);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(to right, #ff6f61, #ff8a80);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 0 20px #ff6f61;
+      animation: fadeInDown 1.2s ease-out;
+    }
+
+    nav {
+      background-color:dimgrey;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color:antiquewhite;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #ff8a80;
+      transform: scale(1.1);
+    }
+
+    .filter-buttons {
+      text-align: center;
+      margin: 2rem 1rem 1rem;
+    }
+
+    .filter-buttons button {
+      background: #ff8a80;
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      margin: 0.5rem;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .filter-buttons button:hover, .filter-buttons button.active {
+      background: #fff;
+      color: #ff8a80;
+    }
+
+    .category-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 2rem;
+      color: #ff8a80;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    .swiper {
+      width: 90%;
+      max-width: 1000px;
+      margin: 1rem auto 3rem;
+      display: none;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(255, 138, 128, 0.3);
+      cursor: pointer;
+    }
+
+    footer {
+      background:#ff8a80;
+      text-align: center;
+      color: #aaa;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Explore the Gallery</h1>
+    <p>Visual Expression from Every Angle</p>
+  </header>
+
+  <nav>
+    <a href="/index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="login.html">Login</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="feedback.html">Feedback</a>
+  </nav>
+
+  <div class="filter-buttons">
+    <button class="active" onclick="filterSelection('abstract', event)">Abstract</button>
+    <button onclick="filterSelection('nature', event)">Nature</button>
+    <button onclick="filterSelection('surreal', event)">Surreal</button>
+    <button onclick="filterSelection('digital', event)">Digital</button>
+    <button onclick="filterSelection('portrait', event)">Portrait</button>
+  </div>
+
+  <h2 class="category-title" id="categoryTitle">Abstract</h2>
+
+  <!-- Swiper Sliders Per Category -->
+  <div class="swiper mySwiper" id="abstract">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><a href="images/abstract1.jpg" class="glightbox"><img src="https://imgs.search.brave.com/gW2466VWr3gsxp1Ova0KpsmIvemgqFOr8DkNB4IIPEM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMucGV4ZWxzLmNv/bS9waG90b3MvMTE4/Mzk5Mi9wZXhlbHMt/cGhvdG8tMTE4Mzk5/Mi5qcGVnP2F1dG89/Y29tcHJlc3MmY3M9/dGlueXNyZ2ImZHBy/PTEmdz01MDA" alt="Abstract1" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/abstract2.jpg" class="glightbox"><img src="https://imgs.search.brave.com/smO1yvAYO0cidyHkuAMm1mltvUV8u5KoaJzAehaeR_A/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMucGV4ZWxzLmNv/bS9waG90b3MvMTI2/OTk2OC9wZXhlbHMt/cGhvdG8tMTI2OTk2/OC5qcGVnP2F1dG89/Y29tcHJlc3MmY3M9/dGlueXNyZ2ImZHBy/PTEmdz01MDA" alt="Abstract2" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/abstract3.jpg" class="glightbox"><img src="https://imgs.search.brave.com/cn7PMQAREiifOo3BZPfC_Agx03jvvB8j4n9KKZw-VGw/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9hYnN0/cmFjdGFydC51cy9j/ZG4vc2hvcC9maWxl/cy9JbnRlcnNwYWNl/LmpwZz92PTE3MzE1/MzQ3ODQmd2lkdGg9/NTMz" alt="Abstract3" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/abstract4.jpg" class="glightbox"><img src="https://imgs.search.brave.com/AfQS601zBX9_jumV0Xk5f0rkcuRAMSpiOe_MBggNd0s/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzdjLzc2/LzhkLzdjNzY4ZGIy/NGE1MWY5OWJmMDhj/ZWI0NGQwNThlM2E4/LmpwZw" alt="Abstract4" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/abstract5.jpg" class="glightbox"><img src="https://imgs.search.brave.com/bhYp08LAJxiBXoQFGdbw2heAWBd0jooIfSPtoM4P2vg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNTAv/MzkyLzgxNS9zbWFs/bC9hYnN0cmFjdC1l/eHByZXNzaW9uaXNt/LXBhaW50aW5nLW9u/LWNhbnZhcy13aXRo/LWdydW5nZS1iYWNr/Z3JvdW5kLXRleHR1/cmUtZnJvbS1oaWdo/LWFuZ2xlLXBob3Rv/LmpwZw" alt="Abstract5" height="500px" width="1000px"></a></div>
+    </div>
+  </div>
+
+  <div class="swiper mySwiper" id="nature">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><a href="https://imgs.search.brave.com/2-j7I1MERfeHjbvB0hsBzjdbFFfcjJSu03eHGJmXJrQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzQ4NTk1MDU5L2Mv/MTU5My8xNTkzLzc2/OC8wL2lsLzFmMzlj/Ny81NzE3NjQ4ODY0/L2lsXzYwMHg2MDAu/NTcxNzY0ODg2NF9k/NXJyLmpwZw" alt="Nature1" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/nature2.jpg" class="glightbox"><img src="https://imgs.search.brave.com/havTjX6HbOzZn9PygZOv3Locj9mubcOB-MXaKOIbZ44/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFqRDFSb0o3akwu/anBn" alt="Nature2" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/nature3.jpg" class="glightbox"><img src="https://imgs.search.brave.com/KkcDePfw_Hv84LoLCKbKuw8wCmqAbB3QA9cpGwys96k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFvbE5BMlN2Ukwu/anBn" alt="Nature3" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/nature4.jpg" class="glightbox"><img src="https://imgs.search.brave.com/p8C6-MscpztrJ9Cty-p9Jtoc-TbovCWqgMrfiOG14cU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/ODFySHpJRVNkT0wu/anBn" alt="Nature4" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/nature5.jpg" class="glightbox"><img src="https://imgs.search.brave.com/pTpeQd9g8D_rRRVYSRodqnL9-FLWGDGwEGoAz0IyEuk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmlj/YW52YXMuY29tL1JW/Uzk_ZD0zJnM9bSZi/Zz1jJnNoPWgmcD0x/JnQ9MTczNDUzNDcw/OQ" alt="Nature5" height="500px" width="1000px"></a></div>
+    </div>
+  </div>
+
+  <div class="swiper mySwiper" id="surreal">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><a href="images/surreal1.jpg" class="glightbox"><img src="https://imgs.search.brave.com/SZd-FcF59eoWOJSr-rbrNKwJaF_RV0rIIyijpW-a3Sc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93ZWJu/ZWVsLmNvbS9kYWls/eS9zaXRlcy9kZWZh/dWx0L2ZpbGVzL2lt/YWdlcy9kYWlseS8w/OS0yMDEzLzE1LWFk/dmljZXMtc3VycmVh/bC1hcnQtYnktb2ht/dWxsZXItZ3l1cmku/anBn" alt="Surreal1" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/surreal2.jpg" class="glightbox"><img src="https://imgs.search.brave.com/1CDtFHL2eAcU_TbGwPu2zkK4e74I8CWI_xrga0I_6F4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93ZWJu/ZWVsLmNvbS9kYWls/eS9zaXRlcy9kZWZh/dWx0L2ZpbGVzL2lt/YWdlcy9kYWlseS8w/OS0yMDEzLzQtc3Vy/cmVhbC1hcnQtYnkt/b2htdWxsZXItZ3l1/cmkuanBn" alt="Surreal2" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/surreal3.jpg" class="glightbox"><img src="https://imgs.search.brave.com/K8TioqXexA8jR7lY5w0weQN7o6DSFVgUWunGnYPq6HA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9iaWd3/YWxsZGVjb3IuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy9jYWNo/ZS90aHVtYnNfODAw/eDgwMC83Mjg3OV9y/ZXRyby13b21hbi1p/bGx1c3RyYXRpb25z/LWNvbGxhZ2Uud2Vi/cA" alt="Surreal3" height="500px" width="1000px"></a></div>
+    <div class="swiper-slide"><a href="images/surreal4.jpg" class="glightbox"><img src="https://imgs.search.brave.com/u_Lwzcq9gR0YKQosTc1WTrkuy9tsB8lGlCZYm0zQqa4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9w/c3ljaGVkZWxpYy1n/aXJsLWlsbHVzdHJh/dGlvbl8yMy0yMTUx/NTA4NDMyLmpwZz9z/ZW10PWFpc19oeWJy/aWQmdz03NDA" alt="Surreal4" height="500px" width="1000px"></a></div>
+    <div class="swiper-slide"><a href="images/surreal5.jpg" class="glightbox"><img src="https://imgs.search.brave.com/NYONw4lLP5-Cw6QUFpAA43VnBhMcVI0-AJdau4VMwIE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9jYXItd2l0aC1t/b25zdGVyLXJvb2Zf/OTAyMzM4LTczMTAu/anBnP3NlbXQ9YWlz/X2h5YnJpZCZ3PTc0/MA" alt="Surreal5" height="500px" width="1000px"></a></div>
+    </div>
+  </div>
+
+  <div class="swiper mySwiper" id="digital">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><a href="images/digital1.jpg" class="glightbox"><img src="https://imgs.search.brave.com/rGPU7ziORtb9FjpZdDa3_7kR-eZjoBmACb-TNeF3Ga8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vYmxvZy5h/cnRzcGVyLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyMi8w/MS9MYS1Sb2JvdHRl/LUphbnZpZXItTGF0/dGVudGUtMjAyMS0x/LmpwZz9yZXNpemU9/NjQ0LDY0NCZzc2w9/MQ" alt="Digital1" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/digital2.jpg" class="glightbox"><img src="https://imgs.search.brave.com/-OJk-o5hLMNc5EeBdUB97JJBtjRXa8-1lhsUaGdOX78/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9k/aWdpdGFsLWFydC1z/dHlsZS1pbGx1c3Ry/YXRpb24tZ3JhcGhp/Yy1kZXNpZ25lcl8y/My0yMTUxNTM2OTQ4/LmpwZz9zZW10PWFp/c19pdGVtc19ib29z/dGVkJnc9NzQw" alt="Digital2" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/digital3.jpg" class="glightbox"><img src="https://imgs.search.brave.com/Wy7ue7RkAYUpJMv_5i-bdtynamSUF3AG2UBsBqvBxps/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAzLzUyLzkxLzAw/LzM2MF9GXzM1Mjkx/MDA2M19BYTdTU0hL/UHNvQUh1RU5LYnN3/NmVraDVQdVVxNTJJ/NS5qcGc" alt="Digital3" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/digital4.jpg" class="glightbox"><img src="https://imgs.search.brave.com/oGsWdHloF9H5SEo1aW_v5MHCGzATD8MvXfIBTxXt7KQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA4LzMyLzQ1Lzc3/LzM2MF9GXzgzMjQ1/NzczNF9FZEJLWEdG/NVlzMmV2anBHQWdh/YldRMmwyTDNDazJD/Qy5qcGc" alt="Digital4" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/digital5.jpg" class="glightbox"><img src="https://imgs.search.brave.com/7F4qLCKGG85L9RpfEppKpZub4bydUNmiTgIaYZg71TA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzE3L2E1/L2Y3LzE3YTVmNzU4/MWFmMjc2MGFkYzVk/YTc5OTliNTQwYzgz/LmpwZw" alt="Digital5" height="500px" width="1000px"></a></div>
+    </div>
+  </div>
+
+  <div class="swiper mySwiper" id="portrait">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><a href="images/portrait1.jpg" class="glightbox"><img src="https://imgs.search.brave.com/Tt7iJ5LxRrZ-ntOvxSKrPxJ0zLUoojVQhGi6nDwzlcQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kM2Qw/MHN3eWhyNjduZC5j/bG91ZGZyb250Lm5l/dC93ODAwaDgwMC9h/cnR1a19zdG9yaWVz/L3Rob21hc2xhd3Jl/bmNlc2VsZi1wb3J0/cmFpdDcyNXB4LTEu/anBn" alt="Portrait1" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/portrait2.jpg" class="glightbox"><img src="https://imgs.search.brave.com/YTdWGpzli0WU1wvcjMz0nYJmazhLIJFPHKRtbDDPBWU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzI4NDIyMzM2L3Iv/aWwvYjBhOTczLzUy/MTY3NDI3NjUvaWxf/NjAweDYwMC41MjE2/NzQyNzY1X2x2Nmwu/anBn" alt="Portrait2" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/portrait3.jpg" class="glightbox"><img src="https://imgs.search.brave.com/Q-2Lsm1aKpXDZdwfAsRfzHj0YVnohXUY8bQ-1mYAkHI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/c2hvcGlmeS5jb20v/cy9maWxlcy8xLzAw/ODMvMjQ3MS8wNDY2/L2ZpbGVzL1Nhcmdl/bnRfUG9ydHJhaXRf/b2ZfTWlsbGV0X3Nf/c29uXzYwMHg2MDAu/cG5nP3Y9MTY2NTc2/NTY4NA" alt="Portrait3" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/portrait4.jpg" class="glightbox"><img src="https://imgs.search.brave.com/Cgn4vxIzzOkqLHmqzdtCyqp_VdIf3u25ywdmxHuMRv8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFxbnhxM0JKTEwu/anBn" alt="Portrait4" height="500px" width="1000px"></a></div>
+      <div class="swiper-slide"><a href="images/portrait5.jpg" class="glightbox"><img src="https://imgs.search.brave.com/uZX2RfrTg8neIlIJ8xdpF3D6pVZ3vcpjG2FisGtCEc8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFkemdSbXY3Vkwu/anBn" alt="Portrait5" height="500px" width="1000px"></a></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Artful Vibes. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    AOS.init({ duration: 1000 });
+    const glightbox = GLightbox({ selector: '.glightbox' });
+
+    // Init all sliders
+    document.querySelectorAll('.swiper').forEach(swiper => {
+      new Swiper(swiper, {
+        loop: true,
+        grabCursor: true,
+        spaceBetween: 30,
+        slidesPerView: 1,
+        centeredSlides: true,
+        autoplay: { delay: 3000, disableOnInteraction: false },
+      });
+    });
+
+    // Filter and show selected slider
+    function filterSelection(category, event) {
+      document.querySelectorAll('.swiper').forEach(s => s.style.display = 'none');
+      document.getElementById(category).style.display = 'block';
+      document.getElementById('categoryTitle').textContent = category.charAt(0).toUpperCase() + category.slice(1);
+      document.querySelectorAll(".filter-buttons button").forEach(btn => btn.classList.remove("active"));
+      if (event) event.target.classList.add("active");
+    }
+
+    // Show default category
+    document.getElementById('abstract').style.display = 'block';
+  </script>
+
+  <script>
+  window.addEventListener('load', function () {
+    AOS.init({ duration: 1000 });
+    const glightbox = GLightbox({ selector: '.glightbox' });
+
+    document.querySelectorAll('.swiper').forEach(swiper => {
+      new Swiper(swiper, {
+        loop: true,
+        grabCursor: true,
+        spaceBetween: 30,
+        slidesPerView: 1,
+        centeredSlides: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false
+        }
+      });
+    });
+
+    // Filter function
+    function filterSelection(category, event) {
+      document.querySelectorAll('.swiper').forEach(s => s.style.display = 'none');
+      document.getElementById(category).style.display = 'block';
+      document.getElementById('categoryTitle').textContent =
+        category.charAt(0).toUpperCase() + category.slice(1);
+      document.querySelectorAll(".filter-buttons button").forEach(btn => btn.classList.remove("active"));
+      if (event) event.target.classList.add("active");
+    }
+
+    // Make filterSelection globally accessible
+    window.filterSelection = filterSelection;
+
+    // Show default
+    document.getElementById('abstract').style.display = 'block';
+  });
+</script>
+
+</body>
+</html>

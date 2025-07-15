@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Artful Vibes - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* === Video Background === */
+    .video-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -10;
+    }
+
+    /* === Animated Circles === */
+    .animated-circles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      overflow: hidden;
+      z-index: -5;
+    }
+
+    .circle {
+      position: absolute;
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ff8a80aa, transparent);
+      animation: float 10s infinite ease-in-out;
+    }
+
+    .circle:nth-child(2) { left: 10%; top: 20%; animation-duration: 14s; }
+    .circle:nth-child(3) { left: 50%; top: 10%; animation-duration: 18s; }
+    .circle:nth-child(4) { left: 80%; top: 50%; animation-duration: 12s; }
+
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      50% { transform: translateY(-30px) scale(1.2); opacity: 1; }
+      100% { transform: translateY(0) scale(1); opacity: 0.8; }
+    }
+
+   nav {
+  background-color: #121212;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo-circle {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  overflow: hidden; /* ✅ Ensures image fits */
+  box-shadow: 0 0 10px #ff8a80;
+  flex-shrink: 0;
+}
+
+.logo-circle img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; 
+  display: block;
+}
+.logo-text{
+  font-size: 1.2rem;
+  font-weight: bold;
+  color:#ff8a80;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #ff8a80;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #ff8a80;
+  transform: scale(1.1);
+}
+
+    header {
+      padding: 6rem 2rem 3rem;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      color: #ff8a80;
+      animation: fadeInDown 1.2s ease-out;
+    }
+
+    header p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #ccc;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .about {
+      text-align: center;
+    }
+
+    .about h2 {
+      color: #ff8a80;
+      margin-bottom: 1rem;
+    }
+
+    .about p {
+      color: #ccc;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .featured-art {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .featured-art img {
+      width: 250px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(255, 138, 128, 0.3);
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .featured-art img:hover {
+      transform: scale(1.05);
+    }
+
+    .why-us {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .why-card {
+      background:#1a1a1a;
+      border-radius: 15px;
+      padding: 2rem;
+      flex: 1 1 250px;
+      box-shadow: 0 0 10px rgba(255,138,128,0.1);
+      transition: 0.3s;
+    }
+
+    .why-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px rgba(255,138,128,0.3);
+    }
+
+    .why-card h3 {
+      color: #ff8a80;
+      margin-bottom: 0.5rem;
+    }
+
+    .why-card p {
+      color: #ccc;
+      line-height: 1.4;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .cta a {
+      background: #ff8a80;
+      color: #fff;
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .cta a:hover {
+      background: #fff;
+      color: #ff8a80;
+      box-shadow: 0 0 15px #ff8a80;
+    }
+
+    footer {
+      background:#1a1a1a;
+      text-align: center;
+      color: #aaa;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 5rem;
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    #bgVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+  opacity: 0.3;
+}
+.registration-section {
+  background: linear-gradient(135deg, #1c1c1c, #000);
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+  box-shadow: inset 0 0 30px rgba(255, 138, 128, 0.2);
+  border-top: 2px solid #ff6f61;
+}
+
+.registration-container {
+  max-width: 600px;
+  margin: auto;
+  background-color: #121212;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 138, 128, 0.3);
+}
+
+.registration-container h2 {
+  color: #ff8a80;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.registration-container p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.registration-form input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #1f1f1f;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+.registration-form input:focus {
+  border: 2px solid #ff8a80;
+  background: #2c2c2c;
+}
+
+.registration-form button {
+  background: #ff8a80;
+  border: none;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.registration-form button:hover {
+  background: #fff;
+  color: #ff8a80;
+  transform: scale(1.05);
+}
+  </style>
+</head>
+<body>
+<video autoplay muted loop id="bgVideo">
+  <source src="/videos/Artvideo.mp4" type="video/mp4" />
+</video>
+  <!-- 🎥 Background Video -->
+  <video class="video-bg" autoplay muted loop>
+    <source src="/videos/Artvideo.mp4" type="video/mp4">
+  </video>
+
+  <!-- ✨ Floating Circles -->
+  <div class="animated-circles">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+
+  <!-- 🌐 Nav and Content -->
+  <nav>
+    <div class="logo">
+  <div class="logo-circle">
+    <img src="https://imgs.search.brave.com/gxYHonhGw87pLPaT9QAgt25PEjEoZo0k_hSyCtx_GjM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTQy/OTM5ODcwMS92ZWN0/b3IvcGFzdGVsLWJs/dWUtYW5kLXB1cnBs/ZS1jaXJjbGUtZGVz/aWduLXRlbXBsYXRl/LW9uLWRhcmstYmx1/ZS1iYWNrZ3JvdW5k/LWxldHRlci1wLWxl/dHRlci1qLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz10NUl1/M1lBNU5xN2tSRHdC/MjJBUHRfSXV4SnUt/dGcyaE1iMERCd013/Q2g4PQ" alt="Artful Vibes Logo" />
+    <span>Artful Vibes</span>
+  </div>
+  <span class="logo-text">Artful Vibes</span>
+  </div>
+  <div class="nav-links">
+    <a href="/index.html">Home</a>
+    <a href="/Folder/gallery.html">Gallery</a>
+    <a href="/Folder/login.html">Login</a>
+    <a href="/Folder/signup.html">Sign Up</a>
+    <a href="/Folder/feedback.html">Feedback</a>
+  </div>
+</nav>
+
+  <header data-aos="fade-down">
+    <h1>Welcome to Artful Vibes</h1>
+    <p>Where Creativity Meets Digital Elegance</p>
+  </header>
+
+  <section class="about" data-aos="fade-up">
+    <h2>About Us</h2>
+    <p>Artful Vibes is a digital hub for passionate artists to showcase their creativity, explore new expressions, and inspire the world. Whether you're into surreal, digital, or portrait art — we bring colors to life!</p>
+  </section>
+
+  <section class="featured-art" data-aos="zoom-in">
+    <img src="https://imgs.search.brave.com/YiN2kCnuvCOJP0idvHbmuKjo1NF5DXuTKuAbM33PFeA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9rZW5k/YWxyYXlhcnQuY29t/L2Nkbi9zaG9wL3By/b2R1Y3RzL2ZyZWVk/b20ta2VuZGFsLXJh/eS1qb2huc29uX2M5/MmZmYmQ2LWY3MTkt/NDRkMi05ZGFjLTU3/MjMyNWNmZDYyMl81/MzB4QDJ4LmpwZz92/PTE1ODY4MTYwNTQ" alt="art1">
+    <img src="https://imgs.search.brave.com/puWoMqOUK96z_Iw6cO56p7dJucSlOuzeIfEpdH_cnEI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2M4L2Zi/L2EyL2M4ZmJhMmM0/YWQwMzlkYjY0YjMy/YmM4M2JkN2ZjNzg5/LmpwZw" alt="art2">
+    <img src="https://imgs.search.brave.com/0Y72CJNwIjmMIRzEzZhVfGBBJdvjPzrCa13yStA76kI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzYwNDc4OTMvYy8y/MjE2LzIyMTYvMC8z/MS9pbC8yZTg1YTIv/MTM0MDE1MDUyNi9p/bF82MDB4NjAwLjEz/NDAxNTA1MjZfZmZ3/ay5qcGc" alt="art3">
+  </section>
+
+  <section class="why-us" data-aos="fade-up">
+    <div class="why-card">
+      <h3>Creative Freedom</h3>
+      <p>Express your imagination without boundaries. Our platform empowers every form of visual storytelling.</p>
+    </div>
+    <div class="why-card">
+      <h3>Modern Gallery</h3>
+      <p>Experience a modern, responsive, and beautiful art viewing experience with lightbox and animation support.</p>
+    </div>
+    <div class="why-card">
+      <h3>Artist Community</h3>
+      <p>Connect with fellow artists, exchange ideas, and grow together with valuable feedback and exposure.</p>
+    </div>
+  </section>
+
+  <section class="cta" data-aos="zoom-in-up">
+    <a href="/Folder/gallery.html">Explore Gallery</a>
+  </section>
+
+    <section class="registration-section" id="register">
+  <div class="registration-container" data-aos="fade-up">
+    <h2>Join the Artful Vibes Community</h2>
+    <p>Sign up to showcase your art, follow artists, and get exclusive updates.</p>
+    <form class="registration-form">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="password" placeholder="Create Password" required>
+      <input type="password" placeholder="Confirm Password" required>
+      <button type="submit">Register Now</button>
+    </form>
+  </div>
+</section>
+  <footer>
+    <p>© 2025 Artful Vibes. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000 });</script>
+</body>
+</html>
